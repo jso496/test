@@ -39,5 +39,5 @@ jobs:
       - name: zip
         run: |
           pwd
-          zip -r sit02-1.12.0.zip "app/build/SWAPP-sit02.ipa" "app/buildSWAPP-sit02.xconfig"
+          zip -r sit02-1.12.0.zip "app/build/SWAPP-sit02.ipa" "app/build/SWAPP-sit02.xconfig"
           find . -name sit02-1.12.0.zip
