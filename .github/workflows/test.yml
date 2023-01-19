@@ -29,5 +29,15 @@ jobs:
       - name: Run a multi-line script
         run: |
           pwd
-          echo Add other actions to build,
-          echo test, and deploy your project.
+          mkdir app
+          cd app
+          mkdir build
+          cd build
+          touch SWAPP-sit02.ipa
+          touch SWAPP-sit02.xconfig
+          
+      - name: zip
+        run: |
+          pwd
+          zip -r sit02-1.12.0.zip "app/build/SWAPP-sit02.ipa" "app/buildSWAPP-sit02.xconfig"
+          find . -name sit02-1.12.0.zip
