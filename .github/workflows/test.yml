@@ -41,3 +41,10 @@ jobs:
           pwd
           zip -r sit02-1.12.0.zip "app/build/SWAPP-sit02.ipa" "app/build/SWAPP-sit02.xconfig"
           find . -name sit02-1.12.0.zip
+          
+          
+      - name: Archive code coverage results
+        uses: actions/upload-artifact@v3
+        with:
+          name: zip
+          path: sit02-1.12.0.zip
