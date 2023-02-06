@@ -22,11 +22,10 @@ jobs:
       - name: Run a multi-line scrip
         id: releaseNum
         run: |
-          echo releaseNumber=${GITHUB_REF##*/}
           echo "TEST=$(pwd)" >> $GITHUB_ENV
-          echo "$releaseNumber"
-          R="$(cut -d'_' -f3 <<<"${GITHUB_REF##*/}")"
-          echo "$R" >> $GITHUB_OUTPUT
+          echo "R<<EOF" >> $GITHUB_ENV
+          echo $(cut -d'_' -f3 <<<"${GITHUB_REF##*/}") >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
           
       #$ A="$(cut -d'_' -f2 <<<"$s")"
       #$ echo "$A"
@@ -35,5 +34,5 @@ jobs:
       - name: print variable
         run: |
           echo "${{ env.TEST }}"
-          echo "${{ steps.releaseNum.outputs.R }}
+          echo "${{ env.R }}
           
