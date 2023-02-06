@@ -24,8 +24,8 @@ jobs:
           echo releaseNumber=${GITHUB_REF##*/}
           echo "TEST=$(pwd)" >> $GITHUB_ENV
           echo "$releaseNumber"
-          R="$(cut -d'_' -f2 <<<"${GITHUB_REF##*/}")"
-          echo "$R"
+          R="$(cut -d'_' -f3 <<<"${GITHUB_REF##*/}")"
+          echo "$R" >> $GITHUB_ENV
           
       #$ A="$(cut -d'_' -f2 <<<"$s")"
       #$ echo "$A"
@@ -34,5 +34,5 @@ jobs:
       - name: print variable
         run: |
           echo "${{ env.TEST }}"
-          echo "${{ env.releaseNumber }}"
+          echo "${{ env.R }}"
           
