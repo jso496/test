@@ -25,6 +25,7 @@ jobs:
           echo "TEST=$(pwd)" >> $GITHUB_ENV
           echo "$releaseNumber"
           R="$(cut -d'_' -f3 <<<"$releaseNumber")"
+          echo "$R"
           
       #$ A="$(cut -d'_' -f2 <<<"$s")"
       #$ echo "$A"
