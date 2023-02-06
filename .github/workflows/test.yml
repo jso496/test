@@ -23,7 +23,7 @@ jobs:
         run: |
           echo ${GITHUB_REF##*/}
           echo "TEST=$(pwd)" >> $GITHUB_ENV
-          echo "releaseNumber=$(cut -d'_' -f3 <<<"${GITHUB_REF##*/}"" >> $GITHUB_ENV
+          echo "releaseNumber=$(cut -d'_' -f3 <<<${GITHUB_REF##*/}" >> $GITHUB_ENV
           
       #$ A="$(cut -d'_' -f2 <<<"$s")"
       #$ echo "$A"
