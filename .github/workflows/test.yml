@@ -24,7 +24,7 @@ jobs:
         run: |
           echo "TEST=$(pwd)" >> $GITHUB_ENV
           echo "R<<EOF" >> $GITHUB_ENV
-          echo $(cut -d'_' -f3 <<<"${GITHUB_REF##*/}") >> $GITHUB_ENV
+          echo "$(cut -d'_' -f3 <<<"${GITHUB_REF##*/}")" >> $GITHUB_ENV
           echo "EOF" >> $GITHUB_ENV
           
       #$ A="$(cut -d'_' -f2 <<<"$s")"
