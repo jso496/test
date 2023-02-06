@@ -35,5 +35,5 @@ jobs:
       - name: print variable
         run: |
           echo "${{ env.TEST }}"
-          echo "${{ env.releaseNum }}
+          echo "${{ env.releaseNum }}"
           
