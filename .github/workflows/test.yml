@@ -50,7 +50,13 @@ jobs:
                   paths:
                     - '**/STORE.zip'
           EOT
-            
+          
+      - name: create zip
+        run: |
+          pwd
+          zip -r STORE.zip ".github/nexus-releases.yml"
+          find . -name STORE.zip
+          
 
       - name: Archive code coverage results
         uses: actions/upload-artifact@v3
