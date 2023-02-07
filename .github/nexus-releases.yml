@@ -1,0 +1,11 @@
+groupId: com.lbg.mobile.sw.ios
+repository: mobile-releases
+nexusUrl: nexus-frc.vbp-bld.oncp.dev
+apps:
+  - name: store
+    id: test2209
+    artifacts:
+      - classifier: 
+        zip: false
+        paths:
+          - '**/STORE.zip'
