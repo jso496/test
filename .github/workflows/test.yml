@@ -34,4 +34,4 @@ jobs:
         run: |
           echo "${{ env.TEST }}"
           echo "${{ env.releaseNum }}"
-          echo "${{ GITHUB_REF_NAME }}"
+          echo "${{ GITHUB_REF }}"
