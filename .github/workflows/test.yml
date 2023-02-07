@@ -43,7 +43,7 @@ jobs:
           cat <<EOT >> .github/nexus-releases.yml
           apps:
             - name: store
-              id: ${GITHUB_EVENT_NAME}
+              id: ${{ env.releaseNum }}
               artifacts:
                 - classifier: 
                   zip: false
