@@ -3,7 +3,7 @@ repository: mobile-releases
 nexusUrl: nexus-frc.vbp-bld.oncp.dev
 apps:
   - name: store
-    id: test2209
+    id: ${GITHUB_EVENT_NAME}
     artifacts:
       - classifier: 
         zip: false
