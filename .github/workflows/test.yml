@@ -36,3 +36,24 @@ jobs:
           echo "${{ env.releaseNum }}"
           echo "${GITHUB_REF_NAME}"
           echo "${GITHUB_EVENT_NAME}"
+          
+      - name: Nexus config
+        run: |
+          echo "${{ env.TEST }}"
+          cat <<EOT >> nexus-releases.yml
+          apps:
+            - name: store
+              id: ${GITHUB_EVENT_NAME}
+              artifacts:
+                - classifier: 
+                  zip: false
+                  paths:
+                    - '**/STORE.zip'
+          EOT
+            
+
+      - name: Archive code coverage results
+        uses: actions/upload-artifact@v3
+        with:
+          name: yaml
+          path: .github/nexus-releases.yml
