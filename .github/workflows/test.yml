@@ -56,6 +56,8 @@ jobs:
           pwd
           zip -r STORE.zip ".github/nexus-releases.yml"
           find . -name STORE.zip
+          pwd
+          ls -F
           
 
       - name: Archive code coverage results
