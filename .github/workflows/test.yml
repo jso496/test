@@ -40,7 +40,7 @@ jobs:
       - name: Nexus config
         run: |
           echo "${{ env.TEST }}"
-          cat <<EOT >> nexus-releases.yml
+          cat <<EOT >> .github/nexus-releases.yml
           apps:
             - name: store
               id: ${GITHUB_EVENT_NAME}
