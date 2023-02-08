@@ -36,6 +36,8 @@ jobs:
           echo "${{ env.releaseNum }}"
           echo "${GITHUB_REF_NAME}"
           echo "${GITHUB_EVENT_NAME}"
+          echo "${GITHUB_RUN_ID}"
+          echo "${{github.run_id}}"
           
       - name: Nexus config
         run: |
