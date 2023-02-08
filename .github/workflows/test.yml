@@ -25,13 +25,7 @@ jobs:
           echo "releaseNum<<EOF" >> $GITHUB_ENV
           echo "$(cut -d'_' -f3 <<<"${GITHUB_REF##*/}")" >> $GITHUB_ENV
           echo "EOF" >> $GITHUB_ENV
-          
-      #$ A="$(cut -d'_' -f2 <<<"$s")"
-      #$ echo "$A"
-      #two
-          
-      - name: print variable
-        run: |
+          #
           echo "${{ env.TEST }}"
           echo "${{ env.releaseNum }}"
           echo "${GITHUB_REF_NAME}"
