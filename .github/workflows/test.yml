@@ -16,11 +16,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
-      
-      - name: Run a multi-line scrip
-        run: |
-          brew install fastlane
+      - uses: actions/checkout@v
           
       # Runs a set of commands using the runners shell
       - name: Run a multi-line scrip
@@ -46,17 +42,7 @@ jobs:
       - name: Nexus config
         run: |
           echo "${{ env.TEST }}"
-          #test comment
-          cat <<EOT >> .github/nexus-releases.yml
-          apps:
-            - name: store
-              id: ${{ env.releaseNum }}
-              artifacts:
-                - classifier: 
-                  zip: false
-                  paths:
-                    - '**/STORE.zip'
-          EOT
+          sed -i 's/RLS_NUM/HELLO/g' .github/nexus-releases.yml
           
       - name: create zip
         run: |
@@ -64,7 +50,7 @@ jobs:
           zip -r STORE.zip ".github/nexus-releases.yml"
           find . -name STORE.zip
           pwd
-          ls -F
+          
           
 
       - name: Archive code coverage results
