@@ -42,7 +42,7 @@ jobs:
       - name: Nexus config
         run: |
           echo "${{ env.TEST }}"
-          sed -i 's/RLS_NUM/HELLO/g' .github/nexus-releases.yml
+          sed -i 's/RLS_NUM/${{ env.releaseNum }}/g' .github/nexus-releases.yml
           
       - name: create zip
         run: |
