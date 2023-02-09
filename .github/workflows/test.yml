@@ -36,6 +36,7 @@ jobs:
           echo "${{ env.releaseNum }}"
           echo "------"
           echo "$releaseNum"
+          echo "${{github.ref_name}}"
           
       - name: Nexus config
         run: |
