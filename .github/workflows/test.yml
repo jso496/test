@@ -28,7 +28,8 @@ jobs:
       - name: Install Fastlane
         run: |
           IPA_FILENAME=$(find calculator.ipa)
-          IOS_APP_VERSION=$(bundle exec fastlane run get_ipa_info_plist_value ipa:./build/$IPA_FILENAME key:CFBundleShortVersionString | grep Result | awk '{print $3}')
+          IOS_APP_VERSION=$(fastlane run get_ipa_info_plist_value ipa:./$IPA_FILENAME key:CFBundleShortVersionString | grep Result | awk '{print $3}')
+          echo "$IOS_APP_VERSION"
           
       # Runs a set of commands using the runners shell
       - name: Run a multi-line scrip
