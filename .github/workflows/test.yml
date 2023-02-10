@@ -72,3 +72,4 @@ jobs:
         with:
           name: yaml
           path: .github/nexus-releases.yml
+          version: ${{env.IOS_APP_VERSION}}-SNAPSHOT
