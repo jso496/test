@@ -1,3 +1,11 @@
-groupId: com.lbg.mobile.sw.RLS_NUM.ios
+groupId: com.lbg.mobile.sw.PensionApp.RLS_NUM.ios
 repository: mobile-releases
 nexusUrl: nexus-frc.vbp-bld.oncp.dev
+apps:
+  - name: PRE-PROD
+    id: PRE-PROD
+    artifacts:
+      - classifier: apps
+        zip: false
+        paths:
+          - '**/Pre-Prod-*.zip'
