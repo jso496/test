@@ -35,7 +35,7 @@ jobs:
       - name: Run a multi-line script
         run: |
           echo "TEST=1.15.0" >> $GITHUB_ENV
-          
+          echo "TEST=$TEST" >> $GITHUB_ENV
           
       - name: print variable
         run: |
