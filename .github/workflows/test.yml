@@ -53,6 +53,7 @@ jobs:
           echo "${GITHUB_REF##*/}"
           echo "${{env.IOS_APP_VERSION}}"
           echo $IOS_APP_VERSION
+          echo "$IOS_APP_VERSION" | od -c
           
       - name: Nexus config
         run: |
