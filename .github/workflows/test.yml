@@ -28,7 +28,8 @@ jobs:
       - name: Install Fastlane
         run: |
           IPA_FILENAME=$(find SWApp_Store.ipa)
-          IOS_APP_VERSION=$(fastlane run get_ipa_info_plist_value ipa:./$IPA_FILENAME key:CFBundleShortVersionString | grep Result | awk '{print $3}'| tr -cd '[:print:]') >> $GITHUB_ENV
+          IOS_APP_VERSION=$(fastlane run get_ipa_info_plist_value ipa:./$IPA_FILENAME key:CFBundleShortVersionString | grep Result | awk '{print $3}'| tr -cd '[:print:]')
+          echo "IOS_APP_VERSION=$IOS_APP_VERSION" >> $GITHUB_ENV
           
       # Runs a set of commands using the runners shell
       - name: Run a multi-line scrip
