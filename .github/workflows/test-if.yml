@@ -1,4 +1,3 @@
-# This is a basic workflow to help you get started with Actions
 name: My Workflow
 
 on:
@@ -8,21 +7,22 @@ on:
         description: 'Environment to deploy'
         required: true
         default: 'ALL'
-        # Define the possible options for the input parameter
+        # Use the select input type to create a dropdown menu for the options
+        type: choice
         options:
-         - SIT01
-         - SIT02
-         - NFT01
-         - LUAT01
-         - LUAT02
-         - ALL
+          - SIT01: 'SIT01 environment'
+          - SIT02: 'SIT02 environment'
+          - NFT01: 'NFT01 environment'
+          - LUAT01: 'LUAT01 environment'
+          - LUAT02: 'LUAT02 environment'
+          - ALL: 'All environments'
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
       
       - name: Deploy to environment
         if: ${{ github.event.inputs.environment != 'ALL' }}
@@ -36,4 +36,29 @@ jobs:
           echo "Deploying to all environments"
           # Add your commands to deploy to all environments here
           
-      # Add more steps here that should run after the deployment
+          - name: Deploy to SIT01
+            run: |
+              echo "Deploying to SIT01 environment"
+              # Add your commands to deploy to SIT01 here
+          
+          - name: Deploy to SIT02
+            run: |
+              echo "Deploying to SIT02 environment"
+              # Add your commands to deploy to SIT02 here
+          
+          - name: Deploy to NFT01
+            run: |
+              echo "Deploying to NFT01 environment"
+              # Add your commands to deploy to NFT01 here
+          
+          - name: Deploy to LUAT01
+            run: |
+              echo "Deploying to LUAT01 environment"
+              # Add your commands to deploy to LUAT01 here
+          
+          - name: Deploy to LUAT02
+            run: |
+              echo "Deploying to LUAT02 environment"
+              # Add your commands to deploy to LUAT02 here
+          
+          # Add more steps here that should run after the deployment to all environments
