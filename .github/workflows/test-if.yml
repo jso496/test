@@ -10,12 +10,12 @@ on:
         # Use the select input type to create a dropdown menu for the options
         type: choice
         options:
-          - SIT01: 'SIT01 environment'
-          - SIT02: 'SIT02 environment'
-          - NFT01: 'NFT01 environment'
-          - LUAT01: 'LUAT01 environment'
-          - LUAT02: 'LUAT02 environment'
-          - ALL: 'All environments'
+          - SIT01 'SIT01 environment'
+          - SIT02 'SIT02 environment'
+          - NFT01 'NFT01 environment'
+          - LUAT01 'LUAT01 environment'
+          - LUAT02 'LUAT02 environment'
+          - ALL 'All environments'
 
 jobs:
   deploy:
