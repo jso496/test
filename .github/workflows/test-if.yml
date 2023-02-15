@@ -36,29 +36,15 @@ jobs:
           echo "Deploying to all environments"
           # Add your commands to deploy to all environments here
           
-          - name: Deploy to SIT01
-            run: |
-              echo "Deploying to SIT01 environment"
-              # Add your commands to deploy to SIT01 here
+      - name: Deploy to SIT01
+        if: ${{ github.event.inputs.environment == 'ALL' }}
+        run: |
+          echo "Deploying to SIT01 environment"
+          # Add your commands to deploy to SIT01 here
           
-          - name: Deploy to SIT02
-            run: |
-              echo "Deploying to SIT02 environment"
-              # Add your commands to deploy to SIT02 here
-          
-          - name: Deploy to NFT01
-            run: |
-              echo "Deploying to NFT01 environment"
-              # Add your commands to deploy to NFT01 here
-          
-          - name: Deploy to LUAT01
-            run: |
-              echo "Deploying to LUAT01 environment"
-              # Add your commands to deploy to LUAT01 here
-          
-          - name: Deploy to LUAT02
-            run: |
-              echo "Deploying to LUAT02 environment"
-              # Add your commands to deploy to LUAT02 here
-          
-          # Add more steps here that should run after the deployment to all environments
+      - name: Deploy to SIT02
+        if: ${{ github.event.inputs.environment == 'ALL' }}
+        run: |
+          echo "Deploying to SIT02 environment"
+          # Add your commands to deploy to SIT02 here
+
