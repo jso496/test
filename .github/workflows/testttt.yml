@@ -1,0 +1,49 @@
+name: My Workflow22222
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Environment to deploy'
+        required: true
+        default: 'ALL'
+        # Use the select input type to create a dropdown menu for the options
+        type: choice
+        options:
+          - SIT01
+          - SIT02
+          - NFT01
+          - LUAT01
+          - LUAT02
+          - ALL
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Deploy to environment
+        if: ${{ github.event.inputs.environment != 'ALL' }}
+        run: |
+          echo "Deploying to ${{ github.event.inputs.environment }} environment"
+          # Add your commands to deploy to a specific environment here
+      
+      - name: Deploy to all environments
+        if: ${{ github.event.inputs.environment == 'ALL' }}
+        run: |
+          echo "Deploying to all environments"
+          # Add your commands to deploy to all environments here
+          
+      - name: Deploy to SIT01
+        if: ${{ github.event.inputs.environment == 'ALL' }}
+        run: |
+          echo "Deploying to SIT01 environment"
+          # Add your commands to deploy to SIT01 here
+          
+      - name: Deploy to SIT02
+        if: ${{ github.event.inputs.environment == 'ALL' }}
+        run: |
+          echo "Deploying to SIT02 environment"
+          # Add your commands to deploy to SIT02 here
